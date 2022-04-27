@@ -126,21 +126,23 @@ if ospath.exists('sudo_users.txt'):
             SUDO_USERS.add(int(line.split()[0]))
 try:
     aid = getConfig('AUTHORIZED_CHATS')
-    aid = aid.split(' ')
-    for _id in aid:
-        AUTHORIZED_CHATS.add(int(_id))
+    if len(aid) > 0:
+        aid = aid.split(' ')
+        for _id in aid:
+            AUTHORIZED_CHATS.add(int(_id))
 except:
     pass
 try:
     aid = getConfig('SUDO_USERS')
-    aid = aid.split(' ')
-    for _id in aid:
-        SUDO_USERS.add(int(_id))
+    if len(aid) > 0:
+        aid = aid.split(' ')
+        for _id in aid:
+            SUDO_USERS.add(int(_id))
 except:
     pass
 try:
     fx = getConfig('EXTENTION_FILTER')
-    if fx != '':
+    if len(fx) > 0:
         fx = fx.split(' ')
         for x in fx:
             EXTENTION_FILTER.add(x.lower())
